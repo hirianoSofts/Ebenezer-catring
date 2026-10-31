@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3b2416">
+  <meta name="description" content="Ebenézer Catering — catering para eventos, festas e ocasiões especiais. Sabores que tornam cada momento inesquecível.">
+  <meta name="robots" content="index, follow">
+  <title>Ebenézer Catering | Sabor que celebra</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ebenézer Catering">
+  <meta property="og:title" content="Ebenézer Catering | Sabor que celebra">
+  <meta property="og:description" content="Catering para eventos, festas e ocasiões especiais. Sabores que tornam cada momento inesquecível.">
+  <meta property="og:url" content="https://ebenezer-catering.vercel.app/">
+  <meta property="og:image" content="https://ebenezer-catering.vercel.app/assets/og-image.png">
+  <meta property="og:locale" content="pt_MZ">
+
+  <link rel="canonical" href="https://ebenezer-catering.vercel.app/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+    
+    :root{
+      --brown:#3b2416;
+      --brown2:#52331f;
+      --yellow:#f5bd32;
+      --yellow2:#ffd66b;
+      --cream:#fffaf0;
+      --muted:#6b5d52;
+      --line:#eadfce;
+      --shadow:0 18px 55px rgba(59,36,22,.10)
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;font-family:'DM Sans',sans-serif;color:var(--brown);background:#fff;font-size:17px;line-height:1.7}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+    .container{width:min(1160px,calc(100% - 48px));margin:auto}
+
+    .topline{height:38px;background:var(--brown);color:#f9e7c5;font-size:14px;font-weight:500}
+    .topline-inner{height:100%;display:flex;align-items:center;justify-content:center;gap:20px}
+    .topline a{color:var(--yellow);font-weight:700}
+    .topline i{font-size:12px}
+
+    .header{height:88px;background:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(59,36,22,.08)}
+    .nav-wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-symbol{width:46px;height:46px;background:var(--yellow);border-radius:12px;display:grid;place-items:center;color:var(--brown);font-size:18px;font-weight:800;letter-spacing:-0.5px}
+    .brand-text{font-size:20px;font-weight:800;line-height:1.2;letter-spacing:-.6px}
+    .brand-text b{color:#b77b12}
+    
+    .nav{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:600;color:#554538}
+    .nav>a:not(.nav-button):hover,.nav>a.active{color:#b4770e}
+    .nav-button{background:var(--brown);color:#fff;padding:12px 18px;border-radius:8px;display:flex;align-items:center;gap:10px}
+    .nav-button:hover,.button-dark:hover{background:#65432b}
+    .menu-toggle{display:none;border:0;background:var(--cream);color:var(--brown);width:44px;height:44px;border-radius:10px;font-size:20px}
+
+    .hero{position:relative;min-height:650px;background:var(--brown);overflow:hidden;display:flex;align-items:center;color:#fff}
+    .hero-bg,.hero-overlay{position:absolute;inset:0}
+    .hero-bg{background:url('https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=2000&q=90') center/cover}
+    .hero-overlay{background:linear-gradient(90deg,rgba(36,22,13,.94) 0%,rgba(45,28,17,.82) 42%,rgba(45,28,17,.18) 100%)}
+    .hero-inner{position:relative;z-index:1;padding-top:70px;padding-bottom:75px}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:#a56b13;font-size:12px;font-weight:800;letter-spacing:1.8px}
+    .eyebrow>span{width:25px;height:2px;background:var(--yellow)}
+    .eyebrow-light{color:#f6d58a}
+    .hero h1{font-size:clamp(48px,6vw,76px);line-height:1.06;letter-spacing:-3.4px;margin:24px 0 20px;font-weight:800;max-width:720px}
+    .hero h1 em,.menu-copy h2 em,.contact-copy h2 em{font-style:normal;color:var(--yellow)}
+    .hero-inner>p{max-width:530px;color:#eadfd3;font-size:18px;line-height:1.75;margin:0}
+    .hero-buttons{display:flex;align-items:center;gap:27px;margin-top:32px}
+    .button{min-height:52px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:13px;border:0;border-radius:8px;font-size:15px;font-weight:800;cursor:pointer;transition:.2s}
+    .button-yellow{background:var(--yellow);color:var(--brown)}
+    .button-yellow:hover{background:var(--yellow2);transform:translateY(-2px)}
+    .button-dark{background:var(--brown);color:#fff}
+    .hero-link{font-size:15px;font-weight:700;color:#fff}
+    .hero-link i{margin-left:8px;color:var(--yellow)}
+    .hero-signature{display:flex;align-items:center;gap:12px;margin-top:60px}
+    .hero-signature>span{width:38px;height:38px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:grid;place-items:center;color:var(--yellow)}
+    .hero-signature b,.hero-signature small{display:block}
+    .hero-signature b{font-size:14px}
+    .hero-signature small{font-size:13px;color:#d4c5b7}
+    .hero-seal{position:absolute;right:8%;bottom:12%;z-index:2;width:112px;height:112px;border:1px solid rgba(255,255,255,.6);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-12deg);font-size:10px;letter-spacing:2px}
+    .hero-seal b{font-size:28px;color:var(--yellow);line-height:1.1}
+
+    .proof{background:var(--cream);border-bottom:1px solid #f0e7d8}
+    .proof-inner{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .proof-inner>div{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700}
+    .proof-inner i{font-size:22px;color:#b77b12}
+
+    .section{padding:100px 0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+    .about-images{position:relative;min-height:510px}
+    .about-main{width:82%;height:450px;object-fit:cover;border-radius:8px 85px 8px 8px}
+    .about-inset{position:absolute;width:43%;height:200px;object-fit:cover;right:0;bottom:0;border:9px solid #fff;border-radius:8px}
+    .experience{position:absolute;left:-20px;bottom:40px;background:var(--yellow);width:140px;height:112px;border-radius:8px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:var(--shadow)}
+    .experience b{font-size:29px;line-height:1.1}
+    .experience span{font-size:13px;font-weight:700;line-height:1.3;margin-top:5px}
+    .about-copy h2,.section-head h2,.center-head h2{font-size:clamp(34px,4vw,49px);line-height:1.14;letter-spacing:-1.9px;margin:18px 0}
+    .about-copy h2 em,.section-head h2 em,.center-head h2 em{font-style:normal;color:#b77b12}
+    .about-copy p{color:var(--muted);font-size:16px;margin:0 0 16px}
+    .about-copy .lead{font-size:18px;color:#4c3829;font-weight:600;line-height:1.7}
+    .benefits{display:grid;gap:17px;margin:27px 0}
+    .benefits>div{display:flex;gap:14px;align-items:center}
+    .benefits>div>i{width:32px;height:32px;border-radius:50%;background:#fff2ce;color:#9b650a;display:grid;place-items:center;flex-shrink:0}
+    .benefits b,.benefits small{display:block}
+    .benefits b{font-size:15px}
+    .benefits small{font-size:14px;color:#897a6d}
+
+    .services{background:var(--cream)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:50px;margin-bottom:42px}
+    .section-head h2{margin-bottom:0}
+    .section-head>p{max-width:400px;color:var(--muted);font-size:16px;margin:0 0 5px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
+    .service-card{background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 10px 35px rgba(59,36,22,.05);transition:.25s}
+    .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .service-card>img{width:100%;height:220px;object-fit:cover}
+    .card-body{padding:26px}
+    .card-body>small{font-size:11px;font-weight:800;letter-spacing:1.4px;color:#b77b12}
+    .card-body h3{font-size:22px;letter-spacing:-.5px;margin:9px 0 8px}
+    .card-body p{font-size:15px;color:var(--muted);margin:0 0 18px;min-height:48px}
+    .card-body>a{font-size:14px;font-weight:800;color:#9c650b}
+    .card-body>a i{margin-left:7px}
+
+    .menu-section{background:var(--brown);color:#fff}
+    .menu-grid{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:85px}
+    .menu-copy h2{font-size:51px;line-height:1.14;letter-spacing:-1.9px;margin:20px 0}
+    .menu-copy>p{color:#d8c9b9;font-size:17px;line-height:1.8}
+    .menu-list{display:grid;gap:14px;margin:27px 0 32px}
+    .menu-list span{font-size:15px;color:#f4e8d9}
+    .menu-list i{color:var(--yellow);margin-right:9px}
+    .menu-image{position:relative}
+    .menu-image>img{height:460px;width:100%;object-fit:cover;border-radius:8px 85px 8px 8px}
+    .image-label{position:absolute;left:-30px;bottom:28px;background:var(--yellow);color:var(--brown);padding:19px 24px;border-radius:7px;box-shadow:var(--shadow)}
+    .image-label small,.image-label b{display:block}
+    .image-label small{font-size:11px;letter-spacing:1.3px;font-weight:800}
+    .image-label b{font-size:18px;margin-top:4px}
+
+    .center-head{text-align:center;margin-bottom:48px}
+    .center-head .eyebrow{justify-content:center}
+    .center-head h2{margin-bottom:0}
+    .step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
+    .step-grid article{position:relative;text-align:center;padding:10px 25px}
+    .step-number{position:absolute;right:20px;top:0;font-size:13px;font-weight:800;color:#c4a46e}
+    .step-icon{width:70px;height:70px;border-radius:20px;background:#fff4d8;color:#a66d0b;display:grid;place-items:center;font-size:26px;margin:0 auto 19px}
+    .step-grid h3{font-size:20px;margin:0 0 10px}
+    .step-grid p{font-size:15px;color:var(--muted);margin:0}
+
+    .contact{background:#4a2e1d;color:#fff}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:85px;align-items:center}
+    .contact-copy h2{font-size:clamp(38px,4vw,49px);line-height:1.14;letter-spacing:-1.9px;margin:20px 0}
+    .contact-copy>p{color:#decebd;max-width:460px;font-size:16px;line-height:1.8;margin-bottom:30px}
+    .contact-line{display:flex;align-items:center;gap:14px;margin:18px 0}
+    .contact-line>i{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;color:var(--yellow);font-size:18px}
+    .contact-line small,.contact-line b{display:block}
+    .contact-line small{font-size:11px;letter-spacing:1.4px;color:#c9b5a1;font-weight:700}
+    .contact-line b{font-size:15px;margin-top:2px}
+    .contact-form{background:#fff;color:var(--brown);padding:36px;border-radius:10px;box-shadow:0 20px 55px rgba(0,0,0,.15)}
+    .contact-form h3{font-size:25px;margin:0 0 6px;letter-spacing:-.7px}
+    .contact-form>p{font-size:15px;color:var(--muted);margin:0 0 22px}
+    .contact-form label{display:block;font-size:14px;font-weight:700;margin-bottom:15px}
+    .contact-form input,.contact-form textarea,.contact-form select{display:block;width:100%;margin-top:7px;border:1px solid #e7dfd5;background:#fffdf9;border-radius:7px;padding:12px 14px;font-size:15px;color:var(--brown);outline:none}
+    .contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:#d39b27;box-shadow:0 0 0 3px rgba(245,189,50,.15)}
+    .contact-form textarea{resize:vertical}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .submit-button{width:100%;margin-top:2px}
+    .form-note{display:block;text-align:center;font-size:12px;color:#8b7c6d;margin-top:12px}
+
+    /* Newsletter Section */
+    .newsletter-section{background:var(--brown2);padding:70px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .newsletter-box{display:flex;align-items:center;justify-content:space-between;gap:40px}
+    .newsletter-copy h3{color:#fff;font-size:32px;letter-spacing:-1px;margin:10px 0 8px}
+    .newsletter-copy p{color:#d8c9b9;font-size:16px;margin:0}
+    .newsletter-form{display:flex;gap:12px;width:100%;max-width:480px}
+    .newsletter-form input{flex:1;background:#fff;border:0;border-radius:8px;padding:14px 18px;font-size:15px;color:var(--brown);outline:none}
+
+    /* Modern & Complete Footer */
+    .footer{background:#22130b;color:#fff;padding:80px 0 0}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:60px}
+    .footer-brand .brand-text{color:#fff}
+    .footer-col p{color:#b8a99b;font-size:15px;line-height:1.7;margin:16px 0 20px}
+    .footer-col h4{font-size:17px;font-weight:700;margin-bottom:20px;color:#fff}
+    .footer-col ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    .footer-col ul a{color:#b8a99b;font-size:15px;transition:.2s}
+    .footer-col ul a:hover{color:var(--yellow)}
+    .footer-col p i{color:var(--yellow);margin-right:8px}
+    .footer-social{display:flex;gap:12px}
+    .footer-social a{width:38px;height:38px;background:rgba(255,255,255,.07);border-radius:8px;display:grid;place-items:center;color:#fff;font-size:16px;transition:.2s}
+    .footer-social a:hover{background:var(--yellow);color:var(--brown)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding:24px 0;display:flex;justify-content:space-between;align-items:center;color:#b9a99b;font-size:14px}
+    .back-top{font-size:14px;font-weight:700;color:var(--yellow);display:flex;align-items:center;gap:8px}
+
+    /* Botão Flutuante do WhatsApp */
+    .whatsapp-float{
+      position:fixed;
+      bottom:25px;
+      right:25px;
+      width:60px;
+      height:60px;
+      background:#25d366;
+      color:#fff;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:28px;
+      box-shadow:0 6px 20px rgba(37,211,102,.4);
+      z-index:99;
+      transition:.3s;
+    }
+    .whatsapp-float:hover{
+      transform:scale(1.08);
+      background:#20ba5a;
+      box-shadow:0 8px 25px rgba(37,211,102,.5);
+    }
+
+    @media(max-width:900px){
+      .nav{gap:16px}
+      .nav-button{padding:11px 12px}
+      .about-grid{gap:45px}
+      .menu-grid,.contact-grid{gap:45px}
+      .newsletter-box{flex-direction:column;align-items:flex-start}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:35px}
+    }
+    @media(max-width:760px){
+      .container{width:min(100% - 36px,560px)}
+      .topline{font-size:12px}
+      .topline-inner{gap:9px}
+      .header{height:74px}
+      .menu-toggle{display:grid;place-items:center}
+      .nav{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;padding:18px 22px 24px;box-shadow:0 18px 25px rgba(40,25,14,.12);flex-direction:column;align-items:stretch;gap:0}
+      .nav.open{display:flex}
+      .nav>a:not(.nav-button){padding:12px 3px;border-bottom:1px solid #f1e9df}
+      .nav-button{justify-content:center;margin-top:15px}
+      .hero{min-height:620px}
+      .hero-overlay{background:linear-gradient(90deg,rgba(36,22,13,.94),rgba(45,28,17,.66))}
+      .hero-inner{padding-top:65px;padding-bottom:65px}
+      .hero h1{font-size:clamp(45px,11vw,64px);letter-spacing:-2.4px}
+      .hero-buttons{align-items:flex-start;flex-direction:column;gap:17px}
+      .hero-signature{margin-top:45px}
+      .hero-seal{right:7%;bottom:7%;width:85px;height:85px;font-size:8px}
+      .hero-seal b{font-size:23px}
+      .proof-inner{padding:18px 0;display:grid;grid-template-columns:1fr;gap:13px}
+      .proof-inner>div{font-size:14px}
+      .section{padding:75px 0}
+      .about-grid,.menu-grid,.contact-grid{grid-template-columns:1fr;gap:45px}
+      .about-images{min-height:420px}
+      .about-main{height:380px;width:86%}
+      .about-inset{height:160px}
+      .experience{left:-7px;bottom:30px;width:120px;height:100px}
+      .experience b{font-size:26px}
+      .about-copy h2,.section-head h2,.center-head h2{font-size:38px}
+      .section-head{display:block;margin-bottom:30px}
+      .section-head>p{margin-top:17px}
+      .cards{grid-template-columns:1fr;gap:18px}
+      .service-card>img{height:220px}
+      .card-body p{min-height:0}
+      .menu-copy h2{font-size:43px}
+      .menu-image>img{height:350px}
+      .image-label{left:-8px;bottom:18px;padding:16px 19px}
+      .step-grid{grid-template-columns:1fr;gap:25px}
+      .step-grid article{padding:8px 20px}
+      .contact-copy h2{font-size:40px}
+      .contact-form{padding:25px 20px}
+      .newsletter-form{max-width:100%;flex-direction:column}
+      .footer-grid{grid-template-columns:1fr;gap:30px}
+      .footer-bottom{flex-direction:column;gap:15px;align-items:flex-start}
+      .whatsapp-float{width:52px;height:52px;font-size:24px;bottom:20px;right:20px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <div class="container topline-inner">
+      <span>Sabores que tornam cada ocasião especial</span>
+      <a href="#contacto">Peça o seu orçamento <i class="fi fi-rr-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Ebenézer Catering - início">
+        <span class="brand-symbol">EC</span>
+        <span class="brand-text">Ebenézer <b>Catering</b></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"><i class="fi fi-rr-menu-burger"></i></button>
+      <nav class="nav" id="mainNav">
+        <a href="#inicio" class="active">Início</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#menu">Menu</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-button" href="#contacto">Solicitar orçamento <i class="fi fi-rr-arrow-right"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <div class="eyebrow eyebrow-light"><span></span> EBENÉZER CATERING</div>
+        <h1>O sabor certo para<br><em>momentos</em> inesquecíveis.</h1>
+        <p>Transformamos encontros em celebrações com comida deliciosa, apresentação cuidada e um serviço feito com carinho.</p>
+        <div class="hero-buttons">
+          <a class="button button-yellow" href="#contacto">Planeie o seu evento <i class="fi fi-rr-arrow-right"></i></a>
+          <a class="hero-link" href="#servicos">Descobrir os serviços <i class="fi fi-rr-arrow-right"></i></a>
+        </div>
+        <div class="hero-signature">
+          <span><i class="fi fi-sr-star"></i></span>
+          <div>
+            <b>Feito com dedicação</b>
+            <small>Cada detalhe conta. Cada sabor fica na memória.</small>
+          </div>
+        </div>
+      </div>
+      <div class="hero-seal"><span>FEITO COM</span><b>♥</b><span>SABOR</span></div>
+    </section>
+
+    <section class="proof">
+      <div class="container proof-inner">
+        <div><i class="fi fi-rr-utensils"></i><span>Comida preparada com cuidado</span></div>
+        <div><i class="fi fi-rr-calendar-check"></i><span>Eventos de todos os tamanhos</span></div>
+        <div><i class="fi fi-rr-heart"></i><span>Atendimento personalizado</span></div>
+      </div>
+    </section>
+
+    <section class="section about" id="sobre">
+      <div class="container about-grid">
+        <div class="about-images">
+          <img class="about-main" src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1000&q=85" alt="Mesa de catering preparada para um evento">
+          <img class="about-inset" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=85" alt="Prato fresco e colorido">
+          <div class="experience"><b>100%</b><span>Dedicação em<br>cada serviço</span></div>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow"><span></span> A NOSSA HISTÓRIA</div>
+          <h2>Mais do que servir comida, <em>criamos experiências.</em></h2>
+          <p class="lead">Acreditamos que uma boa refeição aproxima pessoas e torna os momentos ainda mais especiais.</p>
+          <p>Colocamos paixão, atenção e qualidade em cada prato. Seja num encontro familiar, numa celebração ou num evento corporativo, cuidamos dos detalhes para que possa aproveitar o momento.</p>
+          <div class="benefits">
+            <div><i class="fi fi-rr-check"></i><span><b>Ingredientes selecionados</b><small>Qualidade e frescura em cada preparação.</small></span></div>
+            <div><i class="fi fi-rr-check"></i><span><b>Serviço à sua medida</b><small>Uma solução pensada para o seu evento.</small></span></div>
+          </div>
+          <a class="button button-dark" href="#servicos">Conheça os nossos serviços <i class="fi fi-rr-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow"><span></span> O QUE FAZEMOS</div>
+            <h2>O seu evento merece<br><em>um toque especial.</em></h2>
+          </div>
+          <p>Da primeira conversa à última refeição, estamos aqui para tornar a organização mais simples e o seu evento mais saboroso.</p>
+        </div>
+        <div class="cards">
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85" alt="Mesa de celebração">
+            <div class="card-body">
+              <small>01 / CELEBRAÇÕES</small>
+              <h3>Casamentos & Festas</h3>
+              <p>Buffets e refeições especiais para celebrar os dias mais importantes.</p>
+              <a href="#contacto">Saber mais <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85" alt="Espaço preparado para jantar">
+            <div class="card-body">
+              <small>02 / EMPRESAS</small>
+              <h3>Eventos Corporativos</h3>
+              <p>Coffee breaks, almoços e catering profissional para a sua equipa.</p>
+              <a href="#contacto">Saber mais <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=85" alt="Grelhados e comida preparada">
+            <div class="card-body">
+              <small>03 / EXPERIÊNCIAS</small>
+              <h3>Buffet & Encomendas</h3>
+              <p>Menus variados e encomendas para partilhar bons momentos.</p>
+              <a href="#contacto">Saber mais <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="container menu-grid">
+        <div class="menu-copy">
+          <div class="eyebrow eyebrow-light"><span></span> SABORES PARA PARTILHAR</div>
+          <h2>Uma mesa cheia<br>de <em>bons momentos.</em></h2>
+          <p>Temos opções para diferentes gostos e ocasiões. Converse connosco e montamos uma proposta de menu à medida do seu evento.</p>
+          <div class="menu-list">
+            <span><i class="fi fi-rr-check-circle"></i> Pratos tradicionais</span>
+            <span><i class="fi fi-rr-check-circle"></i> Opções variadas</span>
+            <span><i class="fi fi-rr-check-circle"></i> Apresentação cuidada</span>
+          </div>
+          <a class="button button-yellow" href="#contacto">Pedir proposta de menu <i class="fi fi-rr-arrow-right"></i></a>
+        </div>
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85" alt="Seleção de pratos frescos">
+          <div class="image-label">
+            <small>O INGREDIENTE PRINCIPAL</small>
+            <b>É o carinho em cada detalhe.</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section steps">
+      <div class="container">
+        <div class="center-head">
+          <div class="eyebrow"><span></span> SIMPLES E TRANSPARENTE</div>
+          <h2>Organizar o seu evento<br>é <em>mais fácil connosco.</em></h2>
+        </div>
+        <div class="step-grid">
+          <article>
+            <span class="step-number">01</span>
+            <div class="step-icon"><i class="fi fi-rr-comment-alt"></i></div>
+            <h3>Conte-nos a ideia</h3>
+            <p>Partilhe a data, o tipo de evento e o número de convidados.</p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <div class="step-icon"><i class="fi fi-rr-clipboard-list"></i></div>
+            <h3>Receba a proposta</h3>
+            <p>Preparamos uma solução de catering adequada às suas necessidades.</p>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <div class="step-icon"><i class="fi fi-rr-party-horn"></i></div>
+            <h3>Aproveite o momento</h3>
+            <p>Nós tratamos da comida para que possa desfrutar da ocasião.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <div class="eyebrow eyebrow-light"><span></span> VAMOS CONVERSAR?</div>
+          <h2>O próximo momento especial começa <em>aqui.</em></h2>
+          <p>Fale connosco e peça um orçamento para o seu evento. Será um prazer fazer parte da sua celebração.</p>
+          <div class="contact-line"><i class="fi fi-rr-phone-call"></i><span><small>CONTACTO</small><b>+258 XX XXX XXXX</b></span></div>
+          <div class="contact-line"><i class="fi fi-rr-envelope"></i><span><small>EMAIL</small><b>geral@ebenezercatering.com</b></span></div>
+          <div class="contact-line"><i class="fi fi-rr-marker"></i><span><small>LOCALIZAÇÃO</small><b>Moçambique</b></span></div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <h3>Peça o seu orçamento</h3>
+          <p>Preencha os seus dados. Vamos entrar em contacto.</p>
+          <label>Nome completo<input id="name" type="text" placeholder="Como se chama?" required></label>
+          <div class="form-row">
+            <label>Telefone<input id="phone" type="tel" placeholder="+258 ..." required></label>
+            <label>Tipo de evento
+              <select id="eventType" required>
+                <option value="">Selecione</option>
+                <option>Casamento</option>
+                <option>Aniversário</option>
+                <option>Evento corporativo</option>
+                <option>Outro</option>
+              </select>
+            </label>
+          </div>
+          <label>Conte-nos um pouco mais<textarea id="message" rows="3" placeholder="Data, número de convidados e outros detalhes..."></textarea></label>
+          <button class="button button-yellow submit-button" type="submit">Enviar pedido <i class="fi fi-rr-arrow-right"></i></button>
+          <small class="form-note">O formulário prepara uma mensagem para enviar pelo WhatsApp.</small>
+        </form>
+      </div>
+    </section>
+
+    <!-- Barra de Subscrever Newsletter -->
+    <section class="newsletter-section">
+      <div class="container newsletter-box">
+        <div class="newsletter-copy">
+          <div class="eyebrow eyebrow-light"><span></span> NEWSLETTER</div>
+          <h3>Subscreva a nossa newsletter</h3>
+          <p>Receba novidades, menus especiais e dicas exclusivas diretamente no seu email.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscrição realizada com sucesso!');">
+          <input type="email" placeholder="O seu melhor email..." required>
+          <button type="submit" class="button button-yellow">Subscrever <i class="fi fi-rr-arrow-right"></i></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé Completo e Moderno -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a class="brand footer-brand" href="#inicio">
+          <span class="brand-symbol">EC</span>
+          <span class="brand-text">Ebenézer <b>Catering</b></span>
+        </a>
+        <p>Transformamos cada ocasião num momento inesquecível através de sabores marcantes e serviço de excelência.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
+          <a href="https://wa.me/258XXXXXXXXX" target="_blank" aria-label="WhatsApp"><i class="fi fi-brands-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Casamentos & Festas</a></li>
+          <li><a href="#servicos">Eventos Corporativos</a></li>
+          <li><a href="#servicos">Buffet & Encomendas</a></li>
+          <li><a href="#servicos">Atendimento Personalizado</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p><i class="fi fi-rr-phone-call"></i> +258 XX XXX XXXX</p>
+        <p><i class="fi fi-rr-envelope"></i> geral@ebenezercatering.com</p>
+        <p><i class="fi fi-rr-marker"></i> Moçambique</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Ebenézer Catering. Todos os direitos reservados.</span>
+      <a class="back-top" href="#inicio">Voltar ao topo <i class="fi fi-rr-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://wa.me/258XXXXXXXXX" class="whatsapp-float" target="_blank" aria-label="Fale connosco pelo WhatsApp">
+    <i class="fi fi-brands-whatsapp"></i>
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
